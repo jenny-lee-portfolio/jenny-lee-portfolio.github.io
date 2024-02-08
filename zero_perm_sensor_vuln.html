@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Donald-fotografia</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Howdy!</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+      <li class="nav-item">
+            <a class="nav-link" href="about.html">About me & contact</a>
+          </li>
+      <li class="nav-item">
+            <a class="nav-link" href="photos.html">photography</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/blk.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>A reading on security risks of "zero-permissions" sensors.</h1>
+            <h2 class="subheading">A research from Narain et al. using machine learning to obtain sensitive data from app users. </h2>
+            <span class="meta">
+              <a href="#"></a>
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Narain et al. presented the paper on Inferring User Routes and Location using Zero-Permission Mobile Sensors in 2016 IEEE Symposium on Security and Privacy. Zero-permission mobile sensors are specifically those sensors that do not require higher user permission controls, gyroscope, accelerometer, and magnetometer in this paper. Narain et al. proposed and evaluated ways of tracking user routes without any user permission, hence utilizing gyroscope, accelerometer and magnetometer, in addition to city map data and time stamps.</p>
+
+          <p>The motivation of Narain et al.’s research is the sheer amount of innocuous application on our mobile devices constantly pulling data from sensors that do not require user permissions. The question presents if machine learning algorithm is strong enough that it can predict user location using three simple common sensors: gyroscope, accelerometer, and magnetometer and geographic data and travel time. This problem amplifies when the public do not understand what these sensors are and how they work. Should there be an efficient way to calculate, then users living in major cities are at risks.
+          </p>
+
+          <p>Mapping data is an important piece of information that helps minimize the error of route prediction. The authors introduced ways to map the roadway connections using a mathematical definition of directed graph with two pieces of information of any relationship between two road nodes (edges): the turn angle, real world direction (of a compass). The author then defined a few other groups and sets to record the sensor information from gyroscopes, accelerometer, and magnetometer. As the authors listed, data of the area size is one of the major challenges of this method. Thus, it is better if the driver location, such as a major metropolitan area, is known.</p>
+
+          <p>Even with the data of the road of metro-area all mapped, the succinct road conditions within these cities are a problem. The major problem is the less variability of road conditions, especially in places like Manhattan, where each turn is ninety degrees.</p>
+
+          <p>Other challenges include noisy sensor data and driver behavior. The authors have shown that noisy sensor data are easily mitigated as most sensors such as gyroscope within different manufacturers have a normal distribution of errors.</p>
+
+          <p>For noises in the gyroscope angle, the author only used the L1 norm to minimize the angles of gyroscope data “a” and angle of real turn “theta”, or to maximize the probability of “a” given “theta”. This is a theorem given by the authors. In this numerical process of determining the turn angles, any edges between two nodes that vary a lot by the real-world data have been eliminated. After filtering, a score of every turn is computed and added to produce a most likely route.
+          </p>
+
+          <p>The authors further discussed more advanced scoring methods to score the similar curvatures and travel time. Additional irregularities related check include the travel time check and heading check.</p>
+
+          <p>The results of the authors algorithms and simulations with added errors and real-world driving is astoundingly correct. Even with the worst errors, the prediction can have at least 50 percent of correctness. The author then discussed certain extreme cases.</p>
+
+          <p>There are also performance issues. The data was processed real time on a chip with 8 cores, 16 threads running 2.93GHz, along with 32 GB of RAM. Of course, this performed remotely, therefore the user must allow data sharing through the application.</p>
+
+          <p>Finally, the authors analyzed a few other works done, most notably, many other researches on methods of zero-permission attacks in different modalities, such as sitting, and walking. There are other researches about attacks using both WiFi and these non-permission sensors. There are also many other researches using machine learning algorithms to learn driver patterns to better pattern match and achieve a good attack result.</p>
+
+          <p>In conclusion, obtaining data with just an application, without any user permissions, is possible. Although there is no known previous attacks on civilians, the public must be aware of this risks with their mobile devices.</p>
+
+
+          <h2 class="section-heading">Reference</h2>
+
+          <p>Narain, S., Vo-Huu, T. D., Block, K., & Noubir, G. (2016). Inferring User Routes and Locations Using Zero-Permission Mobile Sensors. 2016 IEEE Symposium on Security and Privacy (SP). doi:10.1109/sp.2016.31.</p>
+
+        
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">&copy;</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
